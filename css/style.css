@@ -130,7 +130,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;}
 .nav.is-scrolled{border-color:var(--border);box-shadow:0 4px 20px rgba(15,34,71,0.05);}
 .nav .container{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px;}
 
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--navy-950);letter-spacing:-0.2px;}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--navy-950);letter-spacing:-0.2px;flex-shrink:0;}
 .brand-mark{width:34px;height:34px;flex-shrink:0;}
 .brand span{color:var(--blue-600);}
 
@@ -147,7 +147,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
 
 .nav-actions{display:flex;align-items:center;gap:12px;}
-.nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border-radius:8px;}
+.nav-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0;}
 .nav-toggle:hover{background:var(--gray-100);}
 .nav-toggle svg{width:22px;height:22px;}
 
@@ -288,6 +288,11 @@ button{font:inherit;cursor:pointer;border:none;background:none;}
 }
 
 /* ---------- 5-step roadmap ---------- */
+.roadmap-hint{
+  display:none;align-items:center;justify-content:center;gap:8px;
+  font-size:12px;font-weight:700;color:var(--gray-500);margin-bottom:14px;
+}
+.roadmap-hint svg{width:14px;height:14px;}
 .roadmap{overflow-x:auto;padding-bottom:8px;}
 .roadmap-track{
   display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:14px;align-items:end;min-width:760px;
@@ -544,8 +549,11 @@ footer{background:var(--navy-950);color:var(--text-inverse-mute);padding:64px 0 
   .nav-links{display:none;}
   .nav-actions .btn-outline{display:none;}
   .nav-toggle{display:flex;}
-  .section{padding:80px 0;}
-  .hero{padding:150px 0 90px;}
+  .section{padding:72px 0;}
+  .hero{padding:128px 0 64px;}
+  .hero-ctas{margin-bottom:40px;}
+  .hero-lead{margin-bottom:32px;}
+  .page-header{padding:124px 0 52px;}
   .pillar-grid,.card-grid-2,.card-grid-3,.card-grid-4,.grs-grid,.pvv-grid,.profile-wrap,.contact-grid{grid-template-columns:1fr;}
   .profile-wrap{gap:32px;}
   .process-row{grid-template-columns:44px 1fr;}
@@ -559,11 +567,30 @@ footer{background:var(--navy-950);color:var(--text-inverse-mute);padding:64px 0 
   .flow{flex-direction:column;}
   .flow-arrow{transform:rotate(90deg);width:100%;padding:2px 0;}
   .ai-promo{grid-template-columns:1fr;padding:36px 26px;}
+  .roadmap-hint{display:flex;}
+  .roadmap{position:relative;}
+  .roadmap::after{
+    content:"";position:absolute;top:0;right:0;bottom:8px;width:36px;pointer-events:none;
+    background:linear-gradient(90deg,transparent,var(--gray-50));
+  }
+  .section--alt .roadmap::after{background:linear-gradient(90deg,transparent,var(--gray-50));}
+  .section:not(.section--alt) .roadmap::after{background:linear-gradient(90deg,transparent,var(--white));}
+}
+/* Nav bar content is too tight for phone widths — shrink the Kakao button to icon-only */
+@media(max-width:560px){
+  .nav .container{padding:0 16px;}
+  .nav .nav-actions{gap:8px;}
+  .nav .btn-kakao.btn-sm{padding:11px;}
+  .nav .btn-kakao.btn-sm .btn-label{display:none;}
 }
 @media(max-width:520px){
   .check-grid{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
+  .container{padding:0 20px;}
   .hero-ctas,.cta-final .hero-ctas{flex-direction:column;align-items:stretch;}
-  .btn{width:100%;}
+  .hero-ctas .btn,.cta-final .hero-ctas .btn{width:100%;}
+  .hero{padding:112px 0 56px;}
+  .page-header{padding:108px 0 44px;}
+  .section{padding:60px 0;}
 }
