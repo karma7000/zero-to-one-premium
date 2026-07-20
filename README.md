@@ -1,5 +1,7 @@
 # Zero to One Company — Premium Landing (v2)
 
+🔗 **Live site: [karma7000.github.io/zero-to-one-premium](https://karma7000.github.io/zero-to-one-premium/index.html)**
+
 Zero to One Company의 기존 홈페이지([zero-to-one-landing](https://karma7000.github.io/zero-to-one-landing/index.html))를
 글로벌 B2B 컨설팅펌 수준으로 리뉴얼한 프로젝트입니다.
 
