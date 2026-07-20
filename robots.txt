@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karma7000.github.io/zero-to-one-premium/sitemap.xml
